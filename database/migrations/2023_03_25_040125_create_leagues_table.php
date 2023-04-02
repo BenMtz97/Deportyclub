@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('leagues', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name',50);
+            $table->unsignedDouble('referee_cost');
+            $table->timestamp('start_date');
         });
     }
 

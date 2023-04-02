@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name',40);
             $table->bigInteger('latitude');
             $table->bigInteger('longitude');
-            $table->smallInteger('surface_id');
-            $table->timestamps();        
+            $table->unsignedBigInteger('surface_id');
+            $table->timestamps();
 
-            //$table->foreign('surface_id')->references('id')->on('surfaces');
+            $table->foreign('surface_id')->references('id')->on('surfaces');
         });
     }
 

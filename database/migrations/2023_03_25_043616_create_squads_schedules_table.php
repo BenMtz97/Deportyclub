@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('squads_schedules', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('squad_id');
+            $table->unsignedBigInteger('schedule_id');
+
+            $table->foreign('squad_id')->references('id')->on('squads');
+            $table->foreign('schedule_id')->references('id')->on('schedules');
         });
     }
 
