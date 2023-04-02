@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('squads', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name',100);
+            $table->string('logotype');
+            $table->string('abbreviation',3);
         });
     }
 

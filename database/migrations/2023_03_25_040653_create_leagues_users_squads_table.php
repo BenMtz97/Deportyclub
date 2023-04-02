@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('leagues_users_squads', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('squad_id');
+            $table->unsignedBigInteger('player_id');
+            $table->unsignedBigInteger('league_id');
+
+            $table->foreign('squad_id')->references('id')->on('squads');
+            $table->foreign('player_id')->references('id')->on('users');
+            $table->foreign('league_id')->references('id')->on('leagues');
+
         });
     }
 
